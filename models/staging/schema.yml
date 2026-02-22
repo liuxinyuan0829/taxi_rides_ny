@@ -92,3 +92,24 @@ models:
         description: Total amount charged to passengers (does not include cash tips)
       - name: payment_type
         description: Payment method code (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)
+
+
+  - name: stg_fhv_tripdata
+    description: Raw fhv taxi trip records
+    columns:
+      - name: dispatching_base_num
+        description: The TLC Base License Number of the base that dispatched the trip
+        data_tests:
+          - not_null
+      - name: pickup_location_id
+        description: TLC Taxi Zone in which the trip began
+      - name: dropoff_location_id
+        description: TLC Taxi Zone in which the trip ended
+      - name: pickup_datetime
+        description: The date and time of the trip pick-up
+      - name: dropOff_datetime
+        description: The date and time of the trip dropoff        
+      - name: sr_flag
+        description: Indicates if the trip was a part of a shared ride chain offered by a High Volume FHV company. For shared trips, the value is 1. For non-shared rides, this field is null.
+      - name: affiliated_base_number
+        description: Base number of the base with which the vehicle is affiliated
